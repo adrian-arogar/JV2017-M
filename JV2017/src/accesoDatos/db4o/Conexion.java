@@ -1,10 +1,9 @@
 /** 
  * Proyecto: Juego de la vida.
- *  jv2014.ajp
  *  Establece acceso a base de datos OO db4o
- *  @since: Prototipo2.2
+ *  @since: Prototipo2.1
  *  @source: ConexionDatos.java 
- *  @version: 2.2 - 18/05/2015 
+ *  @version: 2.1 - 2018.05.07
  *  @author: ajp
  */
 
