@@ -2,7 +2,7 @@
  * Proyecto: Juego de la vida.
  *  Establece acceso a base de datos OO db4o
  *  @since: Prototipo2.1
- *  @source: ConexionDatos.java 
+ *  @source: Conexion.java 
  *  @version: 2.1 - 2018.05.07
  *  @author: ajp
  */
