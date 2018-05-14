@@ -5,7 +5,7 @@
  *  @since: prototipo1.2
  *  @source: Correo.java 
  *  @version: 2.0 - 2018/02/14 
- *  @author: ajp
+ *  @author: Grupo1
  */
 
 package modelo;
