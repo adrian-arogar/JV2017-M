@@ -4,7 +4,7 @@
  * @since: prototipo2.0
  * @source: Simulacion.java 
  * @version: 2.0 - 2018.04.20
- * @author: ajp
+ * @author: Grupo 1: Víctor Martínez Martínez
  */
 
 package modelo;
