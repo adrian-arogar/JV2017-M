@@ -4,9 +4,9 @@
  *  Representa una formación de células conocido que tiene un
  *  comportamiento particular en una simulación.  
  *  @since: prototipo2
- *  @source: Patron.java 
- *  @version: 2.0 - 2018/05/16
- *  @author: Grupo 2 ~  Adrián Aroca García 
+ *  @source: Posicion.java 
+ *  @version: 2.0 - 2018/03/21
+ *  @author: ajp
  */
 
 package modelo;
