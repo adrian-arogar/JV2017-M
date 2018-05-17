@@ -4,8 +4,8 @@
  *  Representa la coordenada del espacio de una celda del mundo simulado.  
  *  @since: prototipo2
  *  @source: Posicion.java 
- *  @version: 2.0 - 2018/03/22
- *  @author: ajp
+ *  @version: 2.0 - 2018/05/16
+ *  @author: Grupo 3 - javigomez
  */
 
 package modelo;
