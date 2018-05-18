@@ -5,7 +5,7 @@
  *  @since: prototipo1.2
  *  @source: ClaveAcceso.java 
  *  @version: 2.0 - 2018/02/14 
- *  @author: ajp
+ *  @author: Grupo1 - Francisco Jurado Abad 1º DAM 2017-2018
  */
 
 package modelo;
