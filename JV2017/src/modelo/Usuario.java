@@ -3,8 +3,8 @@
  *  Implementa el concepto de Usuario según el modelo 2.
  *  @since: prototipo1.0
  *  @source: Usuario.java 
- *  @version: 2.0 - 2018/03/16 
- *  @author: ajp
+ *  @version: 2.1 - 21/05/2018 
+ *  @author: Grupo 2 - Adrian Sanchez
  */
 
 package modelo;
