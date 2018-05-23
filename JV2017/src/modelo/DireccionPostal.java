@@ -4,8 +4,8 @@
  *  Utiliza un varios string para representar los distintos campos.  
  *  @since: prototipo1.2
  *  @source: DireccionPostal.java 
- *  @version: 2.0 - 2018/02/14 
- *  @author: ajp
+ *  @version: 2.1 - 2018/05/21 
+ *  @author: Grupo 2 - Yeray Vera Martínez
  */
 
 package modelo;
