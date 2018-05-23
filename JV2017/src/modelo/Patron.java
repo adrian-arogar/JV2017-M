@@ -5,8 +5,8 @@
  *  comportamiento particular en una simulación.  
  *  @since: prototipo2
  *  @source: Patron.java 
- *  @version: 2.0 - 2018/05/16
- *  @author: Grupo 2 ~  Adrián Aroca García 
+ *  @version: 2.1 - 2018/05/21
+ *  @author: Grupo 2 ~  Adrián Aroca García, Nilton César Vélez López 
  */
 
 package modelo;
