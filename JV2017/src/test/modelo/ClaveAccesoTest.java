@@ -4,7 +4,7 @@
  * @since: prototipo 2.0
  * @source: ClaveAccesoTest.java 
  * @version: 2.0 - 2018.04.12
- * @author: ajp
+ * @author: grupo 1 Jose Aldeguer
  */
 
 package test.modelo;
