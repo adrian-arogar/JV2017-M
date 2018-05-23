@@ -4,7 +4,7 @@
  * @since: prototipo1.0
  * @source: SesionUsuario.java 
  * @version: 2.0 - 2018.04.20
- * @author: ajp
+ * @author: Grupo 3 juanjesus
  */
 
 package modelo;
