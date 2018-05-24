@@ -1,10 +1,10 @@
 /** 
  *  Proyecto: Juego de la vida.
- *  Implementa el concepto de Persona según el modelo 2.
+ *  Implementa el concepto de Persona segÃºn el modelo 2.
  *  @since: prototipo2.0
  *  @source: Persona.java 
  *  @version: 2.0 - 2018/03/14 
- *  @author: Marcos Martínez - Grupo 3
+ *  @author: ajp
  */
 
 package modelo;
@@ -140,7 +140,7 @@ public class Persona implements Serializable {
 	private boolean fechaNacimientoValida(Fecha fechaNacimiento) {
 		// Debe ser fecha del pasado, al menos 16 aÃ±os.
 		Fecha fechaNacimientoMinima = new Fecha();
-		fechaNacimientoMinima.addAños(-16);
+		fechaNacimientoMinima.addAÃ±os(-16);
 		if (fechaNacimientoMinima.compareTo(fechaNacimiento)  >= 0 ) {
 			return true;
 		}
@@ -234,3 +234,4 @@ public class Persona implements Serializable {
 	}
 
 } // class
+
