@@ -1,3 +1,12 @@
+/** 
+ * Proyecto: Juego de la vida.
+ * Prueba Junit4 de la clase SimulacionesDAO según el modelo 2.
+ * @since: prototipo 2.1
+ * @source: SimulacionesDAOTest.java 
+ * @version: 2.0 - 2018.05.29
+ * @author: DAM GRUPO 1 Francisco Jurado Abad
+ * 						Alejandro Motellón Martínez
+ */
 package test.accesoDatos;
 
 import static org.junit.Assert.*;
@@ -86,5 +95,50 @@ public class SimulacionesDAOTest {
 			
 		}
 	}
+	
+	/**
+	 * Test dar de baja una simulacion 
+	 * @author DAM GRUPO 1 Alejandro Motellón Martínez
+	 */
+	@Test
+    public void bajaSimulacion() {
+        try {
+            fachada.bajaSimulacion(simulacionPrueba.getIdSimulacion());
+            assertSame(simulacionPrueba.getIdSimulacion(), fachada.bajaSimulacion(simulacionPrueba.getIdSimulacion()));
+        }
+        catch (DatosException e) {
+            
+        }
+    }
+
+	/**
+	 * Test actualizar cambios de una simulación 
+	 * @author DAM GRUPO 1 - Alejandro Motellón Martínez
+	 */
+	@Test
+    public void testActualizarSimulacion() {
+        Simulacion simNueva = null;
+        try {
+            simNueva = new Simulacion(simulacionPrueba);
+            fachada.altaSimulacion(simulacionPrueba);
+            simNueva.setEstado(EstadoSimulacion.COMPLETADA);
+            fachada.actualizarSimulacion(simNueva);
+            assertEquals(fachada.obtenerSimulacion(simulacionPrueba), simNueva);
+        } 
+        catch (DatosException e) {
+            
+        }
+    }
+
+	/**
+	 * Test básico ToString de simulación 
+	 * @author DAM GRUPO 1 - Alejandro Motellón Martínez
+	 */
+    @Test
+    public void testToStringDatos() {
+        assertNotNull(fachada.toStringDatosSimulaciones());
+    }
+
+	
 	
 }// class
