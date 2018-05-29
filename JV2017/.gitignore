@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+/bin/
+=======
+*.class
+bin/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Project Files #
+.settings/
+.classpath
+.project
+>>>>>>> branch 'master' of https://github.com/PyED2017/JV2017-M.git
