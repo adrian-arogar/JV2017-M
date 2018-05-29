@@ -1,9 +1,9 @@
 /** 
  * Proyecto: Juego de la vida.
- * Prueba Junit4 de la clase SimulacionesDAO según el modelo 2.
+ * Prueba Junit4 de la clase SimulacionesDAO.
  * @since: prototipo 2.1
  * @source: SimulacionesDAOTest.java 
- * @version: 2.0 - 2018.05.29
+ * @version: 2.1 - 2018.05.29
  * @author: DAM GRUPO 1 Francisco Jurado Abad
  * 						Alejandro Motellón Martínez
  */
