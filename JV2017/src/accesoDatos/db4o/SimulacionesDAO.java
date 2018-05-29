@@ -13,6 +13,8 @@ import java.util.List;
 
 import com.db4o.ObjectContainer;
 //import com.db4o.query.Query;
+import com.db4o.ObjectSet;
+import com.db4o.query.Query;
 
 public class SimulacionesDAO implements OperacionesDAO{
 			// Requerido por el Singleton
@@ -71,12 +73,29 @@ public class SimulacionesDAO implements OperacionesDAO{
 			}
 		}
 
-
+		/**
+		 * Búsqueda de simulacion dada su id
+		 * @param id - el id de Simulacion a buscar.
+		 * @return - el Simulacion encontrado. 
+		 * @throws DatosException - si no existe.
+		 * @author GRUPO 1 DAM - Alejandro Motellón Martínez
+		 */
 		@Override
-		public Object obtener(String id) throws DatosException {
-			// TODO Auto-generated method stub
-			return null;
+		public Simulacion obtener(String idSim) throws DatosException {
+			assert idSim!=null;
+			Query consulta = db.query();
+			ObjectSet<Simulacion> result = consulta.execute();
+			consulta.constrain(Simulacion.class);
+			// equal??
+			consulta.descend("idSimulacion").constrain(idSim).equal();
+			
+			if (result.size() > 0) {
+				return result.get(0);
+			} else {
+					return null;
+			}		
 		}
+
 
 
 		@Override
