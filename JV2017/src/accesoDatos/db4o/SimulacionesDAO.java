@@ -134,11 +134,29 @@ public class SimulacionesDAO implements OperacionesDAO{
 		}
 
 
+		/**
+		 *  Actualiza datos de una Simulacion reemplazando el almacenado por el recibido.
+		 *  No admitirá cambios en usr ni en la fecha.
+		 *	@param obj - Patron con las modificaciones.
+		 *  @throws DatosException - si no existe.
+		 *  @author GRUPO 1 DAM - Juan Antonio Espinosa Gálvez
+		 */
 		@Override
 		public void actualizar(Object obj) throws DatosException {
-			// TODO Auto-generated method stub
-			
+			Simulacion simActualizada = (Simulacion) obj;
+			Simulacion simPrevia = null;
+			try {
+				simPrevia = (Simulacion) obtener(simActualizada.getIdSimulacion());
+				simPrevia.setEstado(simActualizada.getEstado());
+				simPrevia.setFecha(simActualizada.getFecha());
+				simPrevia.setMundo(simActualizada.getMundo());
+				simPrevia.setUsr(simActualizada.getUsr());
+				db.store(simPrevia);
+			} catch (DatosException e) {
+				throw new DatosException("Actualizar: " + simActualizada.getIdSimulacion() + "no existe");
+			}
 		}
+
 		/**
          * Obtiene el listado de todas las simulaciones almacenadas.
          * @return el texto con el volcado de datos.
