@@ -14,6 +14,7 @@
 package accesoDatos.db4o;
 
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
 import com.db4o.ObjectContainer;
@@ -301,22 +302,51 @@ public class UsuariosDAO implements OperacionesDAO {
 		db.store(mapaEquivalencias);
 	}
 
+	/**
+	 * Obtiene el listado de todos los usuarios almacenados.
+	 * @return el texto con el volcado de datos.
+	 */
 	@Override
 	public String listarDatos() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder listado = new StringBuilder();
+		for (Usuario usuario : obtenerTodos()) {
+			listado.append("\n" + usuario);
+		}
+		return listado.toString();
 	}
 
+	/**
+	 * Obtiene listado de los usuarios almacendos
+	 * @return los usuarios almacenados como lista de objetos
+	 */
+	public List <Usuario> obtenerTodos() {
+		Query consulta=db.query();
+		consulta.constrain(Usuario.class);
+		return consulta.execute();
+	}
+
+	/**
+	 * Elimina todos los usuarios almacenados y regenera los predeterminados.
+	 */
 	@Override
 	public void borrarTodo() {
-		// TODO Auto-generated method stub
-
+		//Elimina cada uso
+		for (Usuario usr:obtenerTodos()) {
+			db.delete(usr);
+		}
+		//Quita todas las equivalencias
+		Map<String,String> mapaEquivalencias=obtenerMapaEquivalencias();
+		mapaEquivalencias.clear();
+		db.store(mapaEquivalencias);
+		cargarPredeterminados();
 	}
 
+	/**
+	 *  Cierra almacenes de datos.
+	 */
 	@Override
 	public void cerrar() {
-		// TODO Auto-generated method stub
-
+		db.close();
 	}
 
 } // class
