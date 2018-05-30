@@ -172,11 +172,20 @@ public class SimulacionesDAO implements OperacionesDAO{
 			return listado.toString();
 		}
 
-		
+		/**
+         * Elimina todas las simulaciones almacenadas y 
+         * regenera los predeterminados.
+         * @author GRUPO 1 - Víctor Martínez Martínez
+         */
 
 		@Override
         public void borrarTodo() {
-           
+            // Elimina cada uno de los obtenidos
+            for (Simulacion sim: obtenerTodasSimulacion()) {
+                db.delete(sim);
+            }
+            // Regenera predeterminados
+            cargarPredeterminados();
         }
 
 
