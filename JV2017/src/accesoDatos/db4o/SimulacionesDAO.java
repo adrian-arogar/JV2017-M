@@ -109,7 +109,7 @@ public class SimulacionesDAO implements OperacionesDAO{
          *  Busca previamente la posición que le corresponde por búsqueda binaria.
          *  @param obj - Simulación a almacenar.
          *  @throws DatosException - si ya existe.
-         *  @author GRUPO 1 DAM 
+         *  @author GRUPO 1 DAM - Manuel Castillo Jiménez
          */    
         @Override
         public void alta(Object obj) throws DatosException {
