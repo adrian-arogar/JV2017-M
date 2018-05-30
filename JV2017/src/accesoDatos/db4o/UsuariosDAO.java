@@ -7,8 +7,8 @@
  * @source: UsuariosDAO.java 
  * @version: 2.1 - 23/05/2018
  * @author: Grupo 2 ->
- * 					- Adrián Aroca García
  * 					- Adrián Sánchez Orcajada
+ * 					- Adrián Aroca García
  */
 
 package accesoDatos.db4o;
@@ -90,11 +90,9 @@ public class UsuariosDAO implements OperacionesDAO {
 	/**
 	 * Búsqueda de usuario dado su idUsr, el correo o su nif.
 	 * 
-	 * @param id
-	 *            - el id de Usuario a buscar.
+	 * @param id - el id de Usuario a buscar.
 	 * @return el Usuario encontrado.
-	 * @throws DatosException
-	 *             si no existe.
+	 * @throws DatosException - si no existe.
 	 */
 	@Override
 	public Usuario obtener(String id) throws DatosException {
@@ -133,7 +131,7 @@ public class UsuariosDAO implements OperacionesDAO {
 		ObjectSet<Hashtable<String, String>> result = consulta.execute();
 		return result.get(0);
 	}
-	
+
 	/**
 	 * Búsqueda de Usuario dado un objeto, reenvía al método que utiliza idUsr.
 	 * @param obj - el Usuario a buscar.
@@ -255,10 +253,53 @@ public class UsuariosDAO implements OperacionesDAO {
 		db.store(mapaEquivalencias);
 	}
 
+	/**
+	 *  Actualiza datos de un Usuario reemplazando el almacenado por el recibido. 
+	 *  No admitirá cambios en el idUsr.
+	 *	@param obj - Usuario con los cambios.
+	 * @throws DatosException - si no existe.
+	 */
 	@Override
 	public void actualizar(Object obj) throws DatosException {
-		// TODO Auto-generated method stub
+		assert obj != null;
+		Usuario usrActualizado = (Usuario) obj;							// Para conversión cast
+		Usuario usrPrevio = null;
+		try {
+			usrPrevio = (Usuario) obtener (usrActualizado.getIdUsr());
+			cambiarEquivalenciaId(usrPrevio,usrActualizado);
+			usrPrevio.setNif(usrActualizado.getNif());
+			usrPrevio.setNombre(usrActualizado.getNombre());
+			usrPrevio.setApellidos(usrActualizado.getApellidos());
+			usrPrevio.setDomicilio(usrActualizado.getDomicilio());
+			usrPrevio.setCorreo(usrActualizado.getCorreo());
+			usrPrevio.setFechaNacimiento(usrActualizado.getFechaNacimiento());
+			usrPrevio.setFechaAlta(usrActualizado.getFechaAlta());
+			usrPrevio.setRol(usrActualizado.getRol());
+			db.store(usrPrevio);
+		}
+		catch(DatosException e) {
+			throw new DatosException("actualizar: "+ usrActualizado.getIdUsr() + " no existe");
+		}
+		catch (ModeloException e) {
+			e.printStackTrace();
+		}
+	}
 
+	/**
+	 *  Modifica o reemplaza nif y correo como equivalencias de idUsr. 
+	 *	@param usrAntiguo - Usuario a modificar equivalencias. 
+	 *	@param usrNuevo   - Usuario del que se extraen el valor de las modificaciones
+	 */
+	private void cambiarEquivalenciaId(Usuario usrAntiguo, Usuario usrNuevo) {
+		//obtiene mapa
+		Map<String,String> mapaEquivalencias = obtenerMapaEquivalencias();
+		//cambiar
+
+		mapaEquivalencias.replace(usrAntiguo.getIdUsr(), usrNuevo.getIdUsr().toUpperCase());
+		mapaEquivalencias.replace(usrAntiguo.getNif().getTexto(), usrNuevo.getIdUsr().toUpperCase());
+		mapaEquivalencias.replace(usrAntiguo.getCorreo().getTexto(), usrNuevo.getIdUsr().toUpperCase());
+		//actualiza
+		db.store(mapaEquivalencias);
 	}
 
 	@Override
