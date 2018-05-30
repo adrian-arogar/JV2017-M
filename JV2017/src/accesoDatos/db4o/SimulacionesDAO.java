@@ -136,9 +136,8 @@ public class SimulacionesDAO implements OperacionesDAO{
 
 		/**
 		 *  Actualiza datos de una Simulacion reemplazando el almacenado por el recibido.
-		 *  No admitirá cambios en usr ni en la fecha.
-		 *	@param obj - Patron con las modificaciones.
-		 *  @throws DatosException - si no existe.
+		 *	@param obj - Simulación actualizada recibida.
+		 *  @throws DatosException - si la simulación recibida no existe o no concuerda su id.
 		 *  @author GRUPO 1 DAM - Juan Antonio Espinosa Gálvez
 		 */
 		@Override
