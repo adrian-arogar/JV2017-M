@@ -197,7 +197,6 @@ public class UsuariosDAO implements OperacionesDAO {
 			} while (intentos > 0);
 			throw new DatosException("Variar idUsr: " + usrNuevo.getIdUsr() + " imposible generar variante.");
 		}
-		throw new DatosException("Alta: " + usrNuevo.getIdUsr() + " usuario ya existe.");
 	}
 
 
