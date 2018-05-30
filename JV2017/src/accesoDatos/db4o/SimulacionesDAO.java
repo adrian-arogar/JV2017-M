@@ -138,7 +138,7 @@ public class SimulacionesDAO implements OperacionesDAO{
 		 *  Actualiza datos de una Simulacion reemplazando el almacenado por el recibido.
 		 *	@param obj - Simulación actualizada recibida.
 		 *  @throws DatosException - si la simulación recibida no existe o no concuerda su id.
-		 *  @author GRUPO 1 DAM - Juan Antonio Espinosa Gálvez
+		 *  @author GRUPO 1 DAM - Juan Antonio Espinosa Gálvez.
 		 */
 		@Override
 		public void actualizar(Object obj) throws DatosException {
