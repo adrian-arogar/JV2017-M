@@ -104,12 +104,27 @@ public class SimulacionesDAO implements OperacionesDAO{
 			return null;
 		}
 
-
-		@Override
-		public void alta(Object obj) throws DatosException {
-			// TODO Auto-generated method stub
-			
-		}
+		/**
+         *  Recibe un argumento que representa la nueva simulación
+         *  Busca previamente la posición que le corresponde por búsqueda binaria.
+         *  @param obj - Simulación a almacenar.
+         *  @throws DatosException - si ya existe.
+         *  @author GRUPO 1 DAM - Manuel Castillo Jiménez
+         */    
+        @Override
+        public void alta(Object obj) throws DatosException {
+            Simulacion simNueva = (Simulacion) obj;
+            Simulacion simPrevia = null;
+            
+            try {
+                simPrevia = obtener(simNueva.getIdSimulacion());
+            } catch (DatosException e) {
+                db.store(simNueva);
+                return;
+            }
+            
+            throw new DatosException("Simulacion: " + simPrevia + "ya existente");
+        }
 
 
 		@Override
