@@ -184,6 +184,7 @@ public class SimulacionesDAO implements OperacionesDAO{
             for (Simulacion sim: obtenerTodasSimulacion()) {
                 db.delete(sim);
             }
+            
             // Regenera predeterminados
             cargarPredeterminados();
         }
