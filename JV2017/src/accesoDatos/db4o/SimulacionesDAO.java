@@ -124,12 +124,19 @@ public class SimulacionesDAO implements OperacionesDAO{
 			// TODO Auto-generated method stub
 			
 		}
-
+		/**
+         * Obtiene el listado de todas las simulaciones almacenadas.
+         * @return el texto con el volcado de datos.
+         * @author GRUPO 1 - José Antonio Aldeguer Madrid
+         */
 
 		@Override
 		public String listarDatos() {
-			// TODO Auto-generated method stub
-			return null;
+			StringBuilder listado = new StringBuilder();
+			for (Simulacion sim: obtenerTodasSimulacion()) {
+				listado.append("\n"+ sim);
+			}
+			return listado.toString();
 		}
 
 
